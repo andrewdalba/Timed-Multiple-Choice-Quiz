@@ -1,0 +1,29 @@
+header{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    padding-top: 5px;
+    background-color: aqua;
+    height: 70px;
+}
+
+main{
+    background-color: lightblue;
+    margin-top: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+#question{
+    padding-bottom: 20px;
+}
+.btn{
+    background-color: lightgray;
+    border-radius: 40px;
+}
+li{
+    margin: 10px;
+}
+
+#determination{
+    padding-top: 30px;
+}
