@@ -7,6 +7,11 @@ header{
     height: 70px;
 }
 
+#startButtonSection{
+    padding-left: 45%;
+}
+
+
 main{
     background-color: lightblue;
     margin-top: 50px;
@@ -20,8 +25,29 @@ main{
     background-color: lightgray;
     border-radius: 40px;
 }
+.btn:hover{
+    background-color: lightyellow;
+}
 li{
     margin: 10px;
+}
+
+#timeRemaining{
+    text-align: center;
+}
+
+
+.time{
+    padding: 20px;
+    color: mediumvioletred;
+}
+
+#viewHighScores{
+    text-align: center;
+}
+
+a{
+    color: orangered;
 }
 
 #determination{
