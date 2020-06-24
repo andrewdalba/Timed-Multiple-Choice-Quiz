@@ -13,6 +13,7 @@ var answer4 = document.querySelector("#answer4");
 
 
 
+
 // Hides the question text, the answer list, and the determination of a correct answer text
 question.style.visibility = "hidden";
 yourAnswerIs.style.visibility = "hidden";
@@ -23,37 +24,126 @@ answerList.style.visibility = "hidden";
 // WHEN I click the start button
 startBtn.addEventListener("click", startQuiz);
 // a function that will start the timer, show the first question, and show the possible answers to the question
-function startQuiz(){
+function startQuiz() {
     // THEN a timer starts and I am presented with a question
     startBtn.style.display = "none";
     question.style.visibility = "visible";
     answerList.style.visibility = "visible";
     //startTimer();
-    generateQuestion();
-    generateAnswers();   
+    askQuestion();
 }
 
 // create an array with javascript questions as the elements
 // each of the questions has one correct answer and three incorrect answers associated with it
 
-var question1 = {
-    "question": 'Based on your knowledge, what is the answer to this question?',
-    "correct" : 'this is the correct answer to the question',
-    "incorrect1" : 'peepee',
-    "incorrect2" : 'poopoo',
-    "incorrect3" : 'neither pee nor poo'
-};
+var questionList = [
+    {
+        question: 'Based on your knowledge, what is the answer to this question?',
+        a: 'this is the correct answer to the question',
+        b: 'Some kind of answer',
+        c: 'another kind of answer',
+        d: 'a completely different type of answer',
+        correctAnswer: 'this is the correct answer to the question'
+    },
+    {
+        question: 'what is the answer to this question?',
+        a: 'this is a',
+        b: 'this is b',
+        c: 'this is c',
+        d: 'this is d',
+        correctAnswer: 'this is b'
+    },
+    {}
 
-function generateQuestion(){
-    question.textContent = question1.question;
+];
+
+var questionTracker = 0;
+
+function checkAnswer(event){
+    console.log(event);
 }
-function generateAnswers(){
-    answer1.textContent = question1.incorrect1;
-    answer2.textContent = question1.incorrect2;
-    answer3.textContent = question1.correct;
-    answer4.textContent = question1.incorrect3;
+
+answer1.addEventListener("click", function(data){
+    console.log(data);
+    var usersAnswer = data.target.innerHTML
+    if(usersAnswer === questionList[questionTracker].correctAnswer){
+        console.log("Correct!");
+        // update score
+        // show "your answer is correct"
+    }
+    else{
+        console.log("incorrect!")
+        // decrease time
+        // update score
+        // show "your answer is incorrect"
+    }
+    questionTracker++;
+    askQuestion();
+});
+
+answer2.addEventListener("click", function(data){
+    console.log(data);
+    var usersAnswer = data.target.innerHTML
+    if(usersAnswer === questionList[questionTracker].correctAnswer){
+        console.log("Correct!");
+        // update score
+        // show "your answer is correct"
+    }
+    else{
+        console.log("incorrect!")
+        // decrease time
+        // update score
+        // show "your answer is incorrect"
+    }
+    questionTracker++;
+    askQuestion();
+});
+
+answer3.addEventListener("click", function(data){
+    console.log(data);
+    var usersAnswer = data.target.innerHTML
+    if(usersAnswer === questionList[questionTracker].correctAnswer){
+        console.log("Correct!");
+        // update score
+        // show "your answer is correct"
+    }
+    else{
+        console.log("incorrect!")
+        // decrease time
+        // update score
+        // show "your answer is incorrect"
+    }
+    questionTracker++;
+    askQuestion();
+});
+
+answer4.addEventListener("click", function(data){
+    console.log(data);
+    var usersAnswer = data.target.innerHTML
+    if(usersAnswer === questionList[questionTracker].correctAnswer){
+        console.log("Correct!");
+        // update score
+        // show "your answer is correct"
+    }
+    else{
+        console.log("incorrect!")
+        // decrease time
+        // update score
+        // show "your answer is incorrect"
+    }
+    questionTracker++;
+    askQuestion();
+});
+
+
+function askQuestion() {
+    question.textContent = questionList[questionTracker].question;
+    answer1.textContent = questionList[questionTracker].a;
+    answer2.textContent = questionList[questionTracker].b;
+    answer3.textContent = questionList[questionTracker].c;
+    answer4.textContent = questionList[questionTracker].d;
 }
-    
+
 
 
 
