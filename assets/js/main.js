@@ -4,12 +4,15 @@ var question = document.querySelector("#question");
 var correctOrIncorrect = document.querySelector("#correctOrIncorrect");
 var answerList = document.querySelector("#answerList");
 var yourAnswerIs = document.querySelector("#yourAnswerIs");
-var secondsRemaining = document.querySelector("#timeRemaining");
+var minutesRemaining = document.querySelector("#minutesRemaining");
+var secondsRemaining = document.querySelector("#secondsRemaining");
 
 var answer1 = document.querySelector("#answer1");
 var answer2 = document.querySelector("#answer2");
 var answer3 = document.querySelector("#answer3");
 var answer4 = document.querySelector("#answer4");
+
+
 
 
 
@@ -29,7 +32,7 @@ function startQuiz() {
     startBtn.style.display = "none";
     question.style.visibility = "visible";
     answerList.style.visibility = "visible";
-    //startTimer();
+    startTimer();
     askQuestion();
 }
 
@@ -53,83 +56,140 @@ var questionList = [
         d: 'this is d',
         correctAnswer: 'this is b'
     },
-    {}
+    {
+        question: 'what is the answer to this question?',
+        a: 'this is a',
+        b: 'this is b',
+        c: 'this is c',
+        d: 'this is d',
+        correctAnswer: 'this is c'
+    }
 
 ];
 
+//put the amount of total questions into a variable to compare
+//to the amount of correct answers at the end of the quiz
+var amountOfQuestions = questionList.length;
+// create a variable to keep track of how many questions were answered correctly
+//this will update each time the user answers a question
+var amountAnsweredCorrectly = 0;
+//keep track of the score as a percentage
+// var score = (amountAnsweredCorrectly / amountOfQuestions) * 100;
+var score = 0;
+//keep track of what question the user is on
 var questionTracker = 0;
 
-function checkAnswer(event){
+function checkAnswer(event) {
     console.log(event);
 }
 
-answer1.addEventListener("click", function(data){
+answer1.addEventListener("click", function (data) {
     console.log(data);
     var usersAnswer = data.target.innerHTML
-    if(usersAnswer === questionList[questionTracker].correctAnswer){
+    if (usersAnswer === questionList[questionTracker].correctAnswer) {
         console.log("Correct!");
         // update score
+        amountAnsweredCorrectly++;
+        score = ((amountAnsweredCorrectly / amountOfQuestions) * 100).toFixed(2);
         // show "your answer is correct"
+        yourAnswerIs.style.visibility = "visible";
+        correctOrIncorrect.style.visibility = "visible";
+        correctOrIncorrect.textContent = "Correct!";
     }
-    else{
+    else {
         console.log("incorrect!")
         // decrease time
+        secondsElapsed = secondsElapsed + 10;
         // update score
+        score = ((amountAnsweredCorrectly / amountOfQuestions) * 100).toFixed(2);
         // show "your answer is incorrect"
+        yourAnswerIs.style.visibility = "visible";
+        correctOrIncorrect.style.visibility = "visible";
+        correctOrIncorrect.textContent = "Incorrect!";
     }
     questionTracker++;
     askQuestion();
 });
 
-answer2.addEventListener("click", function(data){
+answer2.addEventListener("click", function (data) {
     console.log(data);
     var usersAnswer = data.target.innerHTML
-    if(usersAnswer === questionList[questionTracker].correctAnswer){
+    if (usersAnswer === questionList[questionTracker].correctAnswer) {
         console.log("Correct!");
         // update score
+        amountAnsweredCorrectly++;
+        score = ((amountAnsweredCorrectly / amountOfQuestions) * 100).toFixed(2);
         // show "your answer is correct"
+        yourAnswerIs.style.visibility = "visible";
+        correctOrIncorrect.style.visibility = "visible";
+        correctOrIncorrect.textContent = "Correct!";
     }
-    else{
+    else {
         console.log("incorrect!")
         // decrease time
+        secondsElapsed = secondsElapsed + 10;
         // update score
+        score = ((amountAnsweredCorrectly / amountOfQuestions) * 100).toFixed(2);
         // show "your answer is incorrect"
+        yourAnswerIs.style.visibility = "visible";
+        correctOrIncorrect.style.visibility = "visible";
+        correctOrIncorrect.textContent = "Incorrect!";
     }
     questionTracker++;
     askQuestion();
 });
 
-answer3.addEventListener("click", function(data){
+answer3.addEventListener("click", function (data) {
     console.log(data);
     var usersAnswer = data.target.innerHTML
-    if(usersAnswer === questionList[questionTracker].correctAnswer){
+    if (usersAnswer === questionList[questionTracker].correctAnswer) {
         console.log("Correct!");
         // update score
+        amountAnsweredCorrectly++;
+        score = ((amountAnsweredCorrectly / amountOfQuestions) * 100).toFixed(2);
         // show "your answer is correct"
+        yourAnswerIs.style.visibility = "visible";
+        correctOrIncorrect.style.visibility = "visible";
+        correctOrIncorrect.textContent = "Correct!";
     }
-    else{
+    else {
         console.log("incorrect!")
         // decrease time
+        secondsElapsed = secondsElapsed + 10;
         // update score
+        score = ((amountAnsweredCorrectly / amountOfQuestions) * 100).toFixed(2);
         // show "your answer is incorrect"
+        yourAnswerIs.style.visibility = "visible";
+        correctOrIncorrect.style.visibility = "visible";
+        correctOrIncorrect.textContent = "Incorrect!";
     }
     questionTracker++;
     askQuestion();
 });
 
-answer4.addEventListener("click", function(data){
+answer4.addEventListener("click", function (data) {
     console.log(data);
     var usersAnswer = data.target.innerHTML
-    if(usersAnswer === questionList[questionTracker].correctAnswer){
+    if (usersAnswer === questionList[questionTracker].correctAnswer) {
         console.log("Correct!");
         // update score
+        amountAnsweredCorrectly++;
+        score = ((amountAnsweredCorrectly / amountOfQuestions) * 100).toFixed(2);
         // show "your answer is correct"
+        yourAnswerIs.style.visibility = "visible";
+        correctOrIncorrect.style.visibility = "visible";
+        correctOrIncorrect.textContent = "Correct!";
     }
-    else{
+    else {
         console.log("incorrect!")
         // decrease time
+        secondsElapsed = secondsElapsed + 10;
         // update score
+        score = ((amountAnsweredCorrectly / amountOfQuestions) * 100).toFixed(2);
         // show "your answer is incorrect"
+        yourAnswerIs.style.visibility = "visible";
+        correctOrIncorrect.style.visibility = "visible";
+        correctOrIncorrect.textContent = "Incorrect!";
     }
     questionTracker++;
     askQuestion();
@@ -171,3 +231,42 @@ function askQuestion() {
 // then display all stored scores in list from highest to lowest
 
 // display a play again button which starts the code from the beginning if clicked
+
+// sets the length of the quiz in minutes
+var lengthOfQuiz = .5;
+var totalSeconds = 0;
+var secondsElapsed = 0;
+var interval;
+
+// this function runs once a second
+function runClockCb() {
+    if (Math.floor(((totalSeconds - secondsElapsed) / 60) > 0) && ((totalSeconds - secondsElapsed) % 60) > 0) {
+        secondsElapsed++;
+        console.log(secondsElapsed);
+        // update the display
+        minutesRemaining.textContent = Math.floor((totalSeconds - secondsElapsed) / 60);
+        secondsRemaining.textContent = (totalSeconds - secondsElapsed) % 60;
+    }
+    // we have to stop it at 0
+    else {
+        console.log("quiz over");
+        // run game over function
+        gameOver();
+    }
+}
+
+function startTimer() {
+    var minutes = lengthOfQuiz;
+    // set time using totalSeconds
+    totalSeconds = minutes * 60;
+    // initialize seconds on the clock
+    secondsElapsed = 0;
+    // keep track of our interval
+    interval = setInterval(runClockCb, 1000);
+
+}
+
+function gameOver() {
+    console.log("You did it!");
+    question.textContent = "Your Score: " + score + "%"
+}
