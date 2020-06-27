@@ -57,12 +57,12 @@ var questionList = [
         correctAnswer: 'this is b'
     },
     {
-        question: 'what is the answer to this question?',
-        a: 'this is a',
-        b: 'this is b',
-        c: 'this is c',
-        d: 'this is d',
-        correctAnswer: 'this is c'
+        question: 'Last Question what is the answer to this question?',
+        a: 'this is probably a',
+        b: 'this might be b',
+        c: 'this is without a doubt c',
+        d: 'this is certainly d',
+        correctAnswer: 'this is without a doubt c'
     }
 
 ];
@@ -82,6 +82,8 @@ var questionTracker = 0;
 function checkAnswer(event) {
     console.log(event);
 }
+
+
 
 answer1.addEventListener("click", function (data) {
     console.log(data);
@@ -233,14 +235,14 @@ function askQuestion() {
 // display a play again button which starts the code from the beginning if clicked
 
 // sets the length of the quiz in minutes
-var lengthOfQuiz = .5;
+var lengthOfQuiz = 2.5;
 var totalSeconds = 0;
 var secondsElapsed = 0;
 var interval;
 
 // this function runs once a second
 function runClockCb() {
-    if (Math.floor(((totalSeconds - secondsElapsed) / 60) > 0) && ((totalSeconds - secondsElapsed) % 60) > 0) {
+    if ((Math.floor(((totalSeconds - secondsElapsed) / 60)) >= 0) && ((totalSeconds - secondsElapsed) % 60) >= 0 && questionTracker != questionList.length) {
         secondsElapsed++;
         console.log(secondsElapsed);
         // update the display
@@ -253,6 +255,7 @@ function runClockCb() {
         // run game over function
         gameOver();
     }
+    
 }
 
 function startTimer() {
@@ -266,7 +269,16 @@ function startTimer() {
 
 }
 
+
+
 function gameOver() {
     console.log("You did it!");
     question.textContent = "Your Score: " + score + "%"
+    answerList.style.visibility = "hidden";
+    // prompt user to enter initials to save score
+    // if user enters initials then store score and initials
+}
+
+function viewHighScores() {
+    // hide everything on page and display a list of all high scores from highest to lowest
 }
