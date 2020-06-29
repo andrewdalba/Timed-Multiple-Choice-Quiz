@@ -6,14 +6,19 @@ var answerList = document.querySelector("#answerList");
 var yourAnswerIs = document.querySelector("#yourAnswerIs");
 var minutesRemaining = document.querySelector("#minutesRemaining");
 var secondsRemaining = document.querySelector("#secondsRemaining");
+var highScoreList = document.querySelector("#highScoreList");
 
 var answer1 = document.querySelector("#answer1");
 var answer2 = document.querySelector("#answer2");
 var answer3 = document.querySelector("#answer3");
 var answer4 = document.querySelector("#answer4");
 
-
-
+var highScore1 = document.querySelector("#highScore1");
+var highScore2 = document.querySelector("#highScore2");
+var highScore3 = document.querySelector("#highScore3");
+var highScore4 = document.querySelector("#highScore4");
+var highScore5 = document.querySelector("#highScore5");
+var highScore6 = document.querySelector("#highScore6");
 
 
 
@@ -22,6 +27,7 @@ question.style.visibility = "hidden";
 yourAnswerIs.style.visibility = "hidden";
 correctOrIncorrect.style.visibility = "hidden";
 answerList.style.visibility = "hidden";
+highScoreList.style.visibility = "hidden";
 
 // GIVEN I am taking a code quiz
 // WHEN I click the start button
@@ -32,6 +38,7 @@ function startQuiz() {
     startBtn.style.display = "none";
     question.style.visibility = "visible";
     answerList.style.visibility = "visible";
+    highScoreList.style.visibility = "hidden";
     startTimer();
     askQuestion();
 }
@@ -79,11 +86,6 @@ var score = 0;
 //keep track of what question the user is on
 var questionTracker = 0;
 
-function checkAnswer(event) {
-    console.log(event);
-}
-
-
 
 answer1.addEventListener("click", function (data) {
     console.log(data);
@@ -112,6 +114,7 @@ answer1.addEventListener("click", function (data) {
     questionTracker++;
     askQuestion();
 });
+
 
 answer2.addEventListener("click", function (data) {
     console.log(data);
@@ -208,7 +211,6 @@ function askQuestion() {
 
 
 
-
 // WHEN I answer a question
 // add event listeners for each possible answer
 // keep track of how many answered correctly and how many answered incorrectly
@@ -255,7 +257,7 @@ function runClockCb() {
         // run game over function
         gameOver();
     }
-    
+
 }
 
 function startTimer() {
@@ -279,6 +281,12 @@ function gameOver() {
     // if user enters initials then store score and initials
 }
 
-function viewHighScores() {
-    // hide everything on page and display a list of all high scores from highest to lowest
-}
+var viewHighScores = document.querySelector("#viewHighScores");
+
+viewHighScores.addEventListener("click", function viewHighScores() {
+    highScoreList.style.visibility = "visible";
+    console.log("yoyoyo");
+});
+
+
+

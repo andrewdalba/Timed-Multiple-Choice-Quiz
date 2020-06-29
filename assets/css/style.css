@@ -54,3 +54,6 @@ a{
 #determination{
     padding-top: 30px;
 }
+#viewHighScores:hover{
+    color: red;
+}
