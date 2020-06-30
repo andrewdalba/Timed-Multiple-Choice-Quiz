@@ -1,10 +1,15 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 header{
     text-align: center;
     font-size: large;
     font-weight: bold;
     padding-top: 5px;
-    background-color: aqua;
+    background-color: black;
     height: 70px;
+    color: orange;
 }
 
 #startButtonSection{
@@ -13,10 +18,11 @@ header{
 
 
 main{
-    background-color: lightblue;
+    background-color: orange;
     margin-top: 50px;
     padding-top: 10px;
     padding-bottom: 20px;
+    
 }
 #question{
     padding-bottom: 20px;
@@ -37,7 +43,7 @@ li{
 }
 
 .time{
-    color: mediumvioletred;
+    color: darkred;
     padding-top: 20px;
     font-size: 20px;
     font-weight: 400;
@@ -47,9 +53,7 @@ li{
     text-align: center;
 }
 
-a{
-    color: orangered;
-}
+
 
 #determination{
     padding-top: 30px;

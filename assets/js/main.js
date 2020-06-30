@@ -46,28 +46,44 @@ function startQuiz() {
 
 var questionList = [
     {
-        question: 'what is  2+2?',
-        a: 'this is the correct answer to the question',
-        b: '4',
-        c: 'another kind of answer',
-        d: 'a completely different type of answer',
-        correctAnswer: '4'
+        question: 'What does it cost to upgrade the pyromancy flame from +9 to +10?',
+        a: 'Everything.',
+        b: '4,000 souls and a red titanite chunk',
+        c: '12,000 souls',
+        d: 'It depends on your new-game cycle',
+        correctAnswer: '12,000 souls'
     },
     {
-        question: 'what is the answer to this question?',
-        a: 'this is a',
-        b: 'this is b',
-        c: 'this is c',
-        d: 'this is d',
-        correctAnswer: 'this is b'
+        question: 'What is the name of the boss in Blighttown',
+        a: 'Chaos Witch Quelaag',
+        b: 'Ba Sing Se',
+        c: 'Gendraal the Mighty',
+        d: 'Dark Vader',
+        correctAnswer: 'Chaos Witch Quelaag'
     },
     {
-        question: 'Last Question what is the answer to this question?',
-        a: 'this is probably a',
-        b: 'this might be b',
-        c: 'this is without a doubt c',
-        d: 'this is certainly d',
-        correctAnswer: 'this is without a doubt c'
+        question: 'Which of these is a character in the game?',
+        a: 'Andre of Astora',
+        b: 'Andre 3000',
+        c: 'Andre the Giant',
+        d: 'Eric Andre',
+        correctAnswer: 'Andre of Astora'
+    },
+    {
+        question: 'Which of these Locations do you fight Great Grey Wolf Sif',
+        a: 'Master of the Nets Garden',
+        b: 'Madison Square Garden',
+        c: 'L&B Supmoni Gardens',
+        d: 'Darkroot Garden',
+        correctAnswer: 'Darkroot Garden'
+    },
+    {
+        question: 'Which of these items allow you to set your weapon on fire',
+        a: 'Bomb arrows',
+        b: 'Phoenix down',
+        c: 'Charcoal pine resin',
+        d: 'Fire flower',
+        correctAnswer: 'Charcoal pine resin'
     }
 
 ];
