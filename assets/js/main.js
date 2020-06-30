@@ -20,8 +20,6 @@ var highScore4 = document.querySelector("#highScore4");
 var highScore5 = document.querySelector("#highScore5");
 var highScore6 = document.querySelector("#highScore6");
 
-
-
 // Hides the question text, the answer list, and the determination of a correct answer text
 question.style.visibility = "hidden";
 yourAnswerIs.style.visibility = "hidden";
@@ -48,12 +46,12 @@ function startQuiz() {
 
 var questionList = [
     {
-        question: 'Based on your knowledge, what is the answer to this question?',
+        question: 'what is  2+2?',
         a: 'this is the correct answer to the question',
-        b: 'Some kind of answer',
+        b: '4',
         c: 'another kind of answer',
         d: 'a completely different type of answer',
-        correctAnswer: 'this is the correct answer to the question'
+        correctAnswer: '4'
     },
     {
         question: 'what is the answer to this question?',
@@ -114,7 +112,6 @@ answer1.addEventListener("click", function (data) {
     questionTracker++;
     askQuestion();
 });
-
 
 answer2.addEventListener("click", function (data) {
     console.log(data);
@@ -200,7 +197,6 @@ answer4.addEventListener("click", function (data) {
     askQuestion();
 });
 
-
 function askQuestion() {
     question.textContent = questionList[questionTracker].question;
     answer1.textContent = questionList[questionTracker].a;
@@ -208,8 +204,6 @@ function askQuestion() {
     answer3.textContent = questionList[questionTracker].c;
     answer4.textContent = questionList[questionTracker].d;
 }
-
-
 
 // WHEN I answer a question
 // add event listeners for each possible answer
@@ -257,7 +251,6 @@ function runClockCb() {
         // run game over function
         gameOver();
     }
-
 }
 
 function startTimer() {
@@ -268,24 +261,60 @@ function startTimer() {
     secondsElapsed = 0;
     // keep track of our interval
     interval = setInterval(runClockCb, 1000);
-
 }
-
-
 
 function gameOver() {
     console.log("You did it!");
     question.textContent = "Your Score: " + score + "%"
     answerList.style.visibility = "hidden";
     // prompt user to enter initials to save score
+    // makes the sit wait 50ms before executing "saveScore"
+    // without this, the score wouldn't have enough time to display on screen
+    // setTimeout(saveScore, 50);
     // if user enters initials then store score and initials
 }
 
-var viewHighScores = document.querySelector("#viewHighScores");
+var savedScores = [
+    {
+        user: "",
+        score: ""
+    },
 
+    {
+        user: "",
+        score: ""
+    },
+
+    {
+        user: "",
+        score: ""
+    },
+
+    {
+        user: "",
+        score: ""
+    },
+
+    {
+        user: "",
+        score: ""
+    },
+
+    {
+        user: "",
+        score: ""
+    }
+];
+var initials = ""
+function saveScore(){
+    // initials = prompt("Please enter your initials to save your score.");
+    // savedScores[0].user = initials;
+    console.log(savedScores);
+}
+
+var viewHighScores = document.querySelector("#viewHighScores");
 viewHighScores.addEventListener("click", function viewHighScores() {
     highScoreList.style.visibility = "visible";
-    console.log("yoyoyo");
 });
 
 
