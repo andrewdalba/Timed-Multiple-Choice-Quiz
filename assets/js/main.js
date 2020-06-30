@@ -7,6 +7,11 @@ var yourAnswerIs = document.querySelector("#yourAnswerIs");
 var minutesRemaining = document.querySelector("#minutesRemaining");
 var secondsRemaining = document.querySelector("#secondsRemaining");
 var highScoreList = document.querySelector("#highScoreList");
+var scoreEntry = document.querySelector("#pleaseEnter");
+var submitButton = document.querySelector("#submitScore");
+var scoreInput = document.querySelector("#scoreInput");
+var localStorageScores;
+
 
 var answer1 = document.querySelector("#answer1");
 var answer2 = document.querySelector("#answer2");
@@ -26,6 +31,7 @@ yourAnswerIs.style.visibility = "hidden";
 correctOrIncorrect.style.visibility = "hidden";
 answerList.style.visibility = "hidden";
 highScoreList.style.visibility = "hidden";
+scoreEntry.style.visibility = "hidden";
 
 // GIVEN I am taking a code quiz
 // WHEN I click the start button
@@ -264,8 +270,10 @@ function runClockCb() {
     // we have to stop it at 0
     else {
         console.log("quiz over");
+        clearInterval(interval);
         // run game over function
         gameOver();
+        
     }
 }
 
@@ -283,49 +291,32 @@ function gameOver() {
     console.log("You did it!");
     question.textContent = "Your Score: " + score + "%"
     answerList.style.visibility = "hidden";
+    scoreEntry.style.visibility = "visible";
     // prompt user to enter initials to save score
     // makes the sit wait 50ms before executing "saveScore"
     // without this, the score wouldn't have enough time to display on screen
-    // setTimeout(saveScore, 50);
+    // saveScore();
     // if user enters initials then store score and initials
 }
 
-var savedScores = [
-    {
-        user: "",
-        score: ""
-    },
 
-    {
-        user: "",
-        score: ""
-    },
 
-    {
-        user: "",
-        score: ""
-    },
+submitButton.addEventListener("click", function(event){
+    event.preventDefault();
+    console.log(scoreInput.value);
+    localStorageScores = [{
+        initials: [scoreInput.value],
+        score: [score]
+    }];
+    localStorage.setItem("data", JSON.stringify(localStorageScores));
 
-    {
-        user: "",
-        score: ""
-    },
 
-    {
-        user: "",
-        score: ""
-    },
+});
 
-    {
-        user: "",
-        score: ""
-    }
-];
-var initials = ""
+
 function saveScore(){
-    // initials = prompt("Please enter your initials to save your score.");
-    // savedScores[0].user = initials;
-    console.log(savedScores);
+    
+    console.log("inside savescore function")
 }
 
 var viewHighScores = document.querySelector("#viewHighScores");
