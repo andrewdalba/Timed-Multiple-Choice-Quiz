@@ -32,52 +32,55 @@
                         <li><button id="answer3" class="btn">Answer 3</button></li>
                         <li><button id="answer4" class="btn">Answer 4</button></li>
                     </ol>
-                    <form id="pleaseEnter">
+                </div>
+                <div class="row" id="timeRemainingContainer">
+                    <div class="col-sm-7 col-lg-7 time" id="timeRemaining">
+                        <div>Time Remaining:</div>
+                    </div>
+                    <div class="col-sm-5 col-lg-5 time" id="timeContainer">
+                        <div id="minutesRemaining">2m</div>
+                        <div id="secondsRemaining">30s</div>
+                    </div>
+                </div>
+                <div class="row" id="highScoreContainer">
+                    <form id="scoreEntry">
                         <div class="form-group">
                             <label for="scoreInput">Please enter your initals</label>
                             <input type="text" class="form-control" id="scoreInput">
                         </div>
-                        <button class="btn btn-primary" id="submitScore">Submit</button>
+                        <button class="btn btn-primary" id="submitButton">Submit</button>
                     </form>
-                    <ol id="highScoreList">
-                        <li id="highScore1"></li>
-                        <li id="highScore2"></li>
-                        <li id="highScore3"></li>
-                        <li id="highScore4"></li>
-                        <li id="highScore5"></li>
-                        <li id="highScore6"></li>
-                    </ol>
+                    <section id="highScoreList">
+                        <ol>
+                            <li id="highScore1"></li>
+                            <li id="highScore2"></li>
+                            <li id="highScore3"></li>
+                            <li id="highScore4"></li>
+                            <li id="highScore5"></li>
+                            <li id="highScore6"></li>
+                        </ol>
+                    </section>
+                    <div id="viewHighScores" class="col-sm-6 col-lg-12">
+                        <p href="">View Highscores</p>
+                    </div>
                 </div>
+            </div>
+            <section id="determination" class="container-fluid">
+                <div class="row">
+                    <div id="yourAnswerIs" class="col-sm-6 col-lg-3">
+                        <h4>Your answer is:</h3>
+                    </div>
+                    <div id="correctOrIncorrect" class="col-sm-6 col-lg-6">
+                        <h4>Correct/Incorrect</h3>
+                    </div>
+            </section>
 
-                <div class="col-sm-12 col-lg-2 time">
-                    <div>Time Remaining:</div>
-                </div>
-                <div class="col-sm-12 col-lg-1 time">
-                    <div id="minutesRemaining">2</div>
-                    <div>minutes</div>
-                </div>
-                <div class="col-sm-12 col-lg-1 time">
-                    <div id="secondsRemaining">30</div>
-                    <div>seconds</div>
-                </div>
+            </div>
+
 
             </div>
         </section>
 
-
-        <section id="determination" class="container-fluid">
-            <div class="row">
-                <div id="yourAnswerIs" class="col-sm-12 col-lg-3">
-                    <h4>Your answer is:</h3>
-                </div>
-                <div id="correctOrIncorrect" class="col-sm-12 col-lg-6">
-                    <h4>Correct/Incorrect</h3>
-                </div>
-                <div id="viewHighScores" class="col-sm-12 col-lg-3">
-                    <p href="">View Highscores</p>
-                </div>
-            </div>
-        </section>
     </main>
 
 

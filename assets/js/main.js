@@ -7,11 +7,10 @@ var yourAnswerIs = document.querySelector("#yourAnswerIs");
 var minutesRemaining = document.querySelector("#minutesRemaining");
 var secondsRemaining = document.querySelector("#secondsRemaining");
 var highScoreList = document.querySelector("#highScoreList");
-var scoreEntry = document.querySelector("#pleaseEnter");
-var submitButton = document.querySelector("#submitScore");
+var scoreEntry = document.querySelector("#scoreEntry");
+var submitButton = document.querySelector("#submitButton");
 var scoreInput = document.querySelector("#scoreInput");
 var localStorageScores;
-
 
 var answer1 = document.querySelector("#answer1");
 var answer2 = document.querySelector("#answer2");
@@ -49,7 +48,6 @@ function startQuiz() {
 
 // create an array with javascript questions as the elements
 // each of the questions has one correct answer and three incorrect answers associated with it
-
 var questionList = [
     {
         question: 'What does it cost to upgrade the pyromancy flame from +9 to +10?',
@@ -60,7 +58,7 @@ var questionList = [
         correctAnswer: '12,000 souls'
     },
     {
-        question: 'What is the name of the boss in Blighttown',
+        question: 'What is the name of the boss in Blighttown?',
         a: 'Chaos Witch Quelaag',
         b: 'Ba Sing Se',
         c: 'Gendraal the Mighty',
@@ -76,7 +74,7 @@ var questionList = [
         correctAnswer: 'Andre of Astora'
     },
     {
-        question: 'Which of these Locations do you fight Great Grey Wolf Sif',
+        question: 'Which of these Locations do you fight Great Grey Wolf Sif?',
         a: 'Master of the Nets Garden',
         b: 'Madison Square Garden',
         c: 'L&B Supmoni Gardens',
@@ -84,14 +82,13 @@ var questionList = [
         correctAnswer: 'Darkroot Garden'
     },
     {
-        question: 'Which of these items allow you to set your weapon on fire',
+        question: 'Which of these items allow you to set your weapon on fire?',
         a: 'Bomb arrows',
         b: 'Phoenix down',
         c: 'Charcoal pine resin',
         d: 'Fire flower',
         correctAnswer: 'Charcoal pine resin'
     }
-
 ];
 
 //put the amount of total questions into a variable to compare
@@ -105,7 +102,6 @@ var amountAnsweredCorrectly = 0;
 var score = 0;
 //keep track of what question the user is on
 var questionTracker = 0;
-
 
 answer1.addEventListener("click", function (data) {
     console.log(data);
@@ -219,6 +215,7 @@ answer4.addEventListener("click", function (data) {
     askQuestion();
 });
 
+// updates the page to display the next question and answer choices
 function askQuestion() {
     question.textContent = questionList[questionTracker].question;
     answer1.textContent = questionList[questionTracker].a;
@@ -226,31 +223,6 @@ function askQuestion() {
     answer3.textContent = questionList[questionTracker].c;
     answer4.textContent = questionList[questionTracker].d;
 }
-
-// WHEN I answer a question
-// add event listeners for each possible answer
-// keep track of how many answered correctly and how many answered incorrectly
-// THEN I am presented with another question
-
-
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// This should be happening regardless of if the answer is correct or incorrect
-
-
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// run gameOver function that does the following:
-// stops the clock
-// calculates score
-// displays score
-// prompts the user for their initials
-// saves the users initials and score
-
-// if user clicks "View Highscores" run function that orders all stored scores in order from highest to lowest
-// then display all stored scores in list from highest to lowest
-
-// display a play again button which starts the code from the beginning if clicked
 
 // sets the length of the quiz in minutes
 var lengthOfQuiz = 2.5;
@@ -264,8 +236,8 @@ function runClockCb() {
         secondsElapsed++;
         console.log(secondsElapsed);
         // update the display
-        minutesRemaining.textContent = Math.floor((totalSeconds - secondsElapsed) / 60);
-        secondsRemaining.textContent = (totalSeconds - secondsElapsed) % 60;
+        minutesRemaining.textContent = Math.floor((totalSeconds - secondsElapsed) / 60) + "m";
+        secondsRemaining.textContent = ((totalSeconds - secondsElapsed) % 60) + "s";
     }
     // we have to stop it at 0
     else {
@@ -288,7 +260,7 @@ function startTimer() {
 }
 
 function gameOver() {
-    console.log("You did it!");
+    console.log("Inside gameOver function");
     question.textContent = "Your Score: " + score + "%"
     answerList.style.visibility = "hidden";
     scoreEntry.style.visibility = "visible";

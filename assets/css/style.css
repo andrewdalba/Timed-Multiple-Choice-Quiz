@@ -2,6 +2,8 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+
+
 header{
     text-align: center;
     font-size: large;
@@ -38,26 +40,44 @@ li{
     margin: 10px;
 }
 
-#timeRemaining{
-    text-align: center;
+#highScoreContainer{
+    padding-right: 45px;
 }
 
 .time{
     color: darkred;
     padding-top: 20px;
     font-size: 20px;
-    font-weight: 400;
+}
+
+#scoreEntry{
+    margin-top: 100px;
+}
+
+#timeRemainingContainer{
+    margin-left: auto;
+}
+
+#timeContainer{
+    margin-top: 30px;
+}
+
+#minutesRemaining{
+    float: left;
+    
+}
+
+#secondsRemaining{
+    float: left;
+    margin-left: 4px;
 }
 
 #viewHighScores{
-    text-align: center;
+    text-align: right;
 }
 
 
-
-#determination{
-    padding-top: 30px;
-}
 #viewHighScores:hover{
     color: red;
 }
+
